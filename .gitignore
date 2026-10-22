@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+release/
+dist/*.map
+
+# Runtime caches
+.cache/
+logs/
+*.log
+
+# Secrets and signing material
+*.pfx
+*.p12
+*.key
+*.pem
+.env
+.env.*
+
+# Local user data
+user-data/
+velune-verify-data/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

@@ -1,0 +1,80 @@
+{
+  "name": "velune",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Velune 桌面端：行情图表与看盘工具",
+  "author": "velune",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/main/main.mjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64",
+    "dist:dir": "electron-builder --win --x64 --dir"
+  },
+  "dependencies": {
+    "socks": "2.8.7",
+    "undici": "6.27.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.velune.app",
+    "productName": "Velune",
+    "directories": {
+      "output": "release",
+      "buildResources": "resources"
+    },
+    "files": [
+      "src/main/**/*",
+      "src/shared/**/*",
+      "dist/renderer/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/velune-logo.ico",
+        "to": "velune-logo.ico"
+      },
+      {
+        "from": "resources/velune-runtime-icon.ico",
+        "to": "velune-runtime-icon.ico"
+      },
+      {
+        "from": "resources/velune-app-avatar.png",
+        "to": "velune-app-avatar.png"
+      }
+    ],
+    "win": {
+      "icon": "resources/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Velune"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DXSS66/Velune.git"
+  },
+  "homepage": "https://github.com/DXSS66/Velune",
+  "bugs": {
+    "url": "https://github.com/DXSS66/Velune/issues"
+  }
+}
